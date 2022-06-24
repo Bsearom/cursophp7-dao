@@ -2,20 +2,21 @@
 
 class Usuario {
 
-    private $idusuario;
+    private $idusuarios;
     private $deslogin;
     private $dessenha;
     private $dtcadastro;
 
     public function getIdusuario(){
 
-        return $this->idusuario;
+        return $this->idusuarios;
+        //se der erro trocar idusuarios por id usuario 
 
     }
 
     public function setIdusuario($value){
 
-        $this->idusuario = $value;
+        $this->idusuarios = $value;
 
     }
 
@@ -59,7 +60,7 @@ class Usuario {
 
         $sql = new Sql();
 
-        $results = $sql->select("SELECT * FROM tb_usuarios WHERE idusuario = :ID", array(
+        $results = $sql->select("SELECT * FROM tb_usuarios WHERE idusuarios = :ID", array(
 
             ":ID"=>$id
 
@@ -69,7 +70,7 @@ class Usuario {
 
             $row = $results[0];
 
-            $this->setIdusuario($row['idusuario']);
+            $this->setIdusuario($row['idusuarios']);
             $this->setDeslogin($row['deslogin']);
             $this->setDessenha($row['dessenha']);
             $this->setDtcadastro(new DateTime($row['dtcadastro']));
